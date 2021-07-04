@@ -16,6 +16,9 @@ namespace LordOfMoneyConsole
             menu.ShowMenu();
             cmd.ShowPrompt();
 
+            //
+            // переделать управление меню, чтобы отображались только цифры из меню, все остальное нельзя было напечатать
+            // см Console.ReadKey(Boolean), Console.KeyAvailable
             do
             {
                 cki = Console.ReadKey();

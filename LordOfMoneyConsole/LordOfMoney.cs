@@ -23,6 +23,14 @@ namespace LordOfMoneyConsole
             {
                 cki = Console.ReadKey();
 
+                if (cki.Key == ConsoleKey.D3)
+                {
+                    Console.WriteLine("");
+                    about.OutputLong();
+                    menu.ShowMenu();
+                    cmd.ShowPrompt();
+                }
+
             } while (cki.Key != ConsoleKey.D4);
         }
     }

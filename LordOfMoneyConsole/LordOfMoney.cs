@@ -23,7 +23,7 @@ namespace LordOfMoneyConsole
             {
                 cki = Console.ReadKey();
 
-                if (cki.Key == ConsoleKey.D3)
+                if (cki.Key == ConsoleKey.D3 | cki.Key == ConsoleKey.NumPad3)
                 {
                     Console.WriteLine("");
                     about.OutputLong();
@@ -31,7 +31,7 @@ namespace LordOfMoneyConsole
                     cmd.ShowPrompt();
                 }
 
-            } while (cki.Key != ConsoleKey.D4);
+            } while (cki.Key != ConsoleKey.D4 & cki.Key != ConsoleKey.NumPad4);
         }
     }
 }

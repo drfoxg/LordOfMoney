@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace LordOfMoneyConsole
 {
@@ -6,11 +7,22 @@ namespace LordOfMoneyConsole
     {
         static void Main(string[] args)
         {
+            /*
+            Console.WriteLine(Console.OutputEncoding.HeaderName);
+
+            Console.OutputEncoding = Encoding.UTF8;
+
+            Console.WriteLine(Console.OutputEncoding.HeaderName);
+            */
+
+
             About about = new About();
             Menu menu = new Menu();
             Command cmd = new Command();
 
             ConsoleKeyInfo cki;
+
+            SalaryBalance sb;            
 
             about.OutputShort();
             menu.ShowMenu();
@@ -22,6 +34,20 @@ namespace LordOfMoneyConsole
             do
             {
                 cki = Console.ReadKey();
+
+                if (cki.Key == ConsoleKey.D1 | cki.Key == ConsoleKey.NumPad1)
+                {
+                    Console.WriteLine("");
+                    
+                    Console.Write("Введите остаток баланса на текущий месяц: ");
+                    
+                    decimal sum = Convert.ToDecimal(Console.ReadLine());
+                    sb = new SalaryBalance(sum);
+                    
+                    sb.PrintTable();
+                    menu.ShowMenu();
+                    cmd.ShowPrompt();
+                }
 
                 if (cki.Key == ConsoleKey.D3 | cki.Key == ConsoleKey.NumPad3)
                 {

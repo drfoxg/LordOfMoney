@@ -14,7 +14,9 @@ namespace LordOfMoneyConsole
 
             Console.WriteLine(Console.OutputEncoding.HeaderName);
             */
-
+            
+            Config config = new Config();
+            config.CreateOrOpen();
 
             About about = new About();
             Menu menu = new Menu();
@@ -40,8 +42,10 @@ namespace LordOfMoneyConsole
                     Console.WriteLine("");
                     
                     Console.Write("Введите остаток баланса на текущий месяц: ");
-                    
-                    decimal sum = Convert.ToDecimal(Console.ReadLine());
+
+                    string s_sum = Console.ReadLine();
+                    s_sum = s_sum.Replace(".", ",");
+                    decimal sum = Convert.ToDecimal(s_sum);
                     sb = new SalaryBalance(sum);
                     
                     sb.PrintTable();

@@ -15,6 +15,17 @@ namespace MyLibrary
 
     public class Library
     {
+        public static void GetTechHelp()
+        {
+            ConsoleColor def_backgroundcolor = Console.BackgroundColor;
+            ConsoleColor def_foregroundcolor = Console.ForegroundColor;
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Critical error. Contact us: help@lordofmoney.com");
+
+            Console.BackgroundColor = def_backgroundcolor;
+            Console.ForegroundColor = def_foregroundcolor;
+        }
         public static void Pause()
         {
             Console.ReadKey();

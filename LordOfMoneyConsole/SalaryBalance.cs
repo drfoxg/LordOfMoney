@@ -7,12 +7,13 @@ namespace LordOfMoneyConsole
 {
     // остаток от дохода до конца месяца
     class SalaryBalance
-    {
-        private decimal _sum = 0;
+    {       
         private int _day = 0;
         private int _deltaDays = 0;
-        private decimal _everyDayBalance = 0;
+        private string _firstDay = "";
 
+        private decimal _sum = 0;
+        private decimal _everyDayBalance = 0;
         private List<EveryDayBalanceTableItem> _table = new List<EveryDayBalanceTableItem>();
 
         public SalaryBalance(decimal sum)
@@ -28,6 +29,7 @@ namespace LordOfMoneyConsole
             _everyDayBalance = _sum / _deltaDays;
 
             DateTime dtNow = DateTime.Now;
+            _firstDay = dtNow.ToShortDateString();
             
             // debug
             // dtNow = new DateTime(2021, 7, 1);
@@ -40,7 +42,7 @@ namespace LordOfMoneyConsole
             {
                 EveryDayBalanceTableItem _ti = new EveryDayBalanceTableItem();
 
-                _ti.DateOfCurrentMounth = dtPlusOne.Date;
+                _ti.DateOfCurrentMonth = dtPlusOne.Date;
                 _ti.Value = _everyDayBalance;
                 _table.Add(_ti);
 
@@ -60,7 +62,7 @@ namespace LordOfMoneyConsole
             }
         }
 
-        public int DelatDays
+        public int DeltaDays
         {
             get => _deltaDays;
         }
@@ -74,11 +76,18 @@ namespace LordOfMoneyConsole
         {
             foreach (EveryDayBalanceTableItem ti in _table)
             {
-                DateTime dt = ti.DateOfCurrentMounth;
+                DateTime dt = ti.DateOfCurrentMonth;
                 Library.PrintGreen(dt.Date.ToShortDateString());
                 Console.Write("\t");
-                Console.WriteLine($"{ ti.Value, 0:C2}");
+                Console.WriteLine($"{ti.Value, 0:C2}");
             }
+
+            Console.Write("");
+        }
+
+        public string FirstDay
+        {
+            get => _firstDay;
         }
 
     }

@@ -9,7 +9,7 @@ namespace LordOfMoneyConsole
         private DateTime _date;
         private decimal _value;
 
-        public DateTime DateOfCurrentMounth
+        public DateTime DateOfCurrentMonth
         {
             get => _date.Date;
             set => _date = value;

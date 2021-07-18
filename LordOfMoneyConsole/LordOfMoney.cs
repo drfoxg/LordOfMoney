@@ -9,9 +9,7 @@ namespace LordOfMoneyConsole
         {
             /*
             Console.WriteLine(Console.OutputEncoding.HeaderName);
-
             Console.OutputEncoding = Encoding.UTF8;
-
             Console.WriteLine(Console.OutputEncoding.HeaderName);
             */
             
@@ -31,15 +29,16 @@ namespace LordOfMoneyConsole
             cmd.ShowPrompt();
 
             //
-            // переделать управление меню, чтобы отображались только цифры из меню, все остальное нельзя было напечатать
-            // см Console.ReadKey(Boolean), Console.KeyAvailable
+            // 1) переделать управление меню, чтобы отображались только цифры из меню, все остальное нельзя было напечатать
+            // см Console.ReadKey(Boolean)
+            // 2) додела остальное меню
             do
             {
-                cki = Console.ReadKey();
+                cki = Console.ReadKey(true);
 
                 if (cki.Key == ConsoleKey.D1 | cki.Key == ConsoleKey.NumPad1)
                 {
-                    Console.WriteLine("");
+                    Console.WriteLine("1");
                     
                     Console.Write("Введите остаток баланса на текущий месяц: ");
 
@@ -61,7 +60,7 @@ namespace LordOfMoneyConsole
                     cmd.ShowPrompt();
                 }
 
-            } while (cki.Key != ConsoleKey.D4 & cki.Key != ConsoleKey.NumPad4);
+            } while (cki.Key != ConsoleKey.D4 & cki.Key != ConsoleKey.NumPad4);            
         }
     }
 }
